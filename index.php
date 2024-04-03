@@ -4,6 +4,10 @@ require './Models/Product.php';
 require './Models/Food.php';
 require './Models/Category.php';
 require './Models/Game.php';
+require './Models/Utility.php';
+require './Models/Shop.php';
+require './Models/User.php';
+require './Models/RegisteredUser.php';
 
 $cane = new Category("cani", "fa-solid fa-dog");
 $gatto = new Category("gatti", "fa-solid fa-cat");
@@ -16,11 +20,25 @@ $pallina = new Game("pallina", 8.50, $gatto);
 $pallina->setThumb("https://th.bing.com/th/id/OIP.CSL6Y-c6yMqbb4Mgp20opAHaHa?rs=1&pid=ImgDetMain");
 // var_dump($pallina);
 
+$cuccia = new Utility("cuccia", 15.00, $cane);
+$cuccia->setThumb("https://www.cibocanigatti.it/accessori-cani-e-gatti/accesori-cane/cucce-per-cani-da-esterno_NG2.jpg");
+
 $products = [
     $crocchette,
     $pallina,
+    $cuccia,
 ];
 // var_dump($products);
+
+$shopUser1 = new Shop([$crocchette, $cuccia]);
+// var_dump($shopUser1);
+$user1 = new User("Mario", "Rossi", "m.rossi@mail.com", $shopUser1);
+// var_dump($user1);
+
+$shopUser2 = new Shop([$pallina]);
+var_dump($shopUser2);
+$user2 = new RegisteredUser("Giacomo", "Verdi", "g.verdi@mail.com", $shopUser2);
+var_dump($user2);
 
 ?>
 
@@ -59,7 +77,7 @@ $products = [
             foreach($products as $product) {
             ?>
         
-            <div class="col">
+            <div class="col-6">
                 <div class="card" style="width: 18rem;">
                     <img src="<?= $product->getThumb() ?>" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -79,7 +97,7 @@ $products = [
         <?php
         }
         ?>
-        </div>
+    </div>
 
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

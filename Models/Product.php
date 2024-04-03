@@ -33,6 +33,10 @@ class Product {
         return $this->name;
     }
 
+    public function setPrice($newPrice) {
+        return $this->price = $newPrice;
+    }
+
     public function getPrice() {
         return $this->price;
     }
