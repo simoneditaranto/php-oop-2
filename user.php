@@ -2,10 +2,11 @@
 
 require './db.php';
 
-$shopUser1 = new Shop([$crocchette, $cuccia]);
-// var_dump($shopUser1);
-$user1 = new User("Mario", "Rossi", "m.rossi@mail.com", $shopUser1);
-// // var_dump($user1);
+$shopUser2 = new Shop([$pallina, $cuccia]);
+var_dump($shopUser2);
+$user2 = new RegisteredUser("Giacomo", "Verdi", "g.verdi@mail.com", $shopUser2);
+var_dump($user2);
+var_dump($user2->getShop());
 
 ?>
 
@@ -39,18 +40,23 @@ $user1 = new User("Mario", "Rossi", "m.rossi@mail.com", $shopUser1);
 
         <h1>Pet Market</h1>
 
-        <h2>Benvenuto <?= $user1->getName() ?></h2>
+        <h2>Benvenuto <?= $user2->getName() ?></h2>
 
         <div class="cards d-flex gap-5 flex-wrap">
             <?php
-            foreach($user1->getShop()->getShopProducts() as $product) {
+            foreach($user2->getShop()->getShopProducts() as $product) {
             ?>
 
             <div class="card" style="width: 18rem;">
                 <img src="<?= $product->getThumb() ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="product-title"><?= $product->getName() ?></h5>
-                    <p class="product-price"><?= $product->getPrice() ?>€</p>
+                    <p class="product-price">
+                        <span class="old-price text-decoration-line-through fw-light fst-italic"><?= $product->getPrice() ?></span>
+                        <span class="new-price">
+                            <?= $product->setPrice($product->getPrice() - ($product->getPrice() / 100 * 20)) ?>€
+                        </span>
+                    </p>
                     <div class="product-icon">
                         <i class="<?= $product->getCategory()->getIcon() ?>"></i>
                     </div>

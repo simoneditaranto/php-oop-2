@@ -2,6 +2,12 @@
 
     require './db.php';
 
+    var_dump($crocchette);
+    var_dump($pallina);
+    var_dump($cuccia);
+
+    var_dump($products);
+
 ?>
 
 
