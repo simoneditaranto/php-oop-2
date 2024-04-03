@@ -1,6 +1,6 @@
 <?php
 
-class Food extends Product {
+class Game extends Product {
 
     protected $type;
 
@@ -8,7 +8,7 @@ class Food extends Product {
 
         parent::__construct($_name, $_price, $_category);
 
-        $this->type = "Cibo";
+        $this->type = "Giochi";
         
     }
 

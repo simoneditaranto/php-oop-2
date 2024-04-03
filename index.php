@@ -2,9 +2,18 @@
 
 require './Models/Product.php';
 require './Models/Food.php';
+require './Models/Category.php';
+require './Models/Game.php';
 
-$crocchette = new Food("crocchette", 12.50, "cani");
-var_dump($crocchette);
+$cane = new Category("cani");
+$gatto = new Category("gatti");
+// var_dump($cane);
+
+$crocchette = new Food("crocchette", 12.50, $cane);
+// var_dump($crocchette);
+$pallina = new Game("pallina", 8.50, $gatto);
+// var_dump($pallina);
+
 
 ?>
 
@@ -25,6 +34,8 @@ var_dump($crocchette);
     <div class="container">
 
         <h1>Pet Market</h1>
+
+        
 
     </div>
 
