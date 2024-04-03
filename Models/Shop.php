@@ -14,7 +14,7 @@ class Shop {
         return $this->quantity;
     }
 
-    public function getshopProducts() {
+    public function getShopProducts() {
         return $this->shopProducts;
     }
 

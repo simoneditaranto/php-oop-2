@@ -6,6 +6,7 @@ class User {
     protected $lastName;
     protected $mail;
     protected $shop;
+    protected $creditCard;
     
     /**
      * __construct
@@ -21,6 +22,14 @@ class User {
         $this->lastName = $_lastName;
         $this->mail = $_mail;
         $this->shop = $_shop;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getShop() {
+        return $this->shop;
     }
 
 }

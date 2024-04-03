@@ -27,15 +27,6 @@ $products = [
 ];
 
 
-$shopUser1 = new Shop([$crocchette, $cuccia]);
-// var_dump($shopUser1);
-$user1 = new User("Mario", "Rossi", "m.rossi@mail.com", $shopUser1);
-// // var_dump($user1);
-
-$shopUser2 = new Shop([$pallina]);
-// var_dump($shopUser2);
-$user2 = new RegisteredUser("Giacomo", "Verdi", "g.verdi@mail.com", $shopUser2);
-// var_dump($user2);
 
 
 
