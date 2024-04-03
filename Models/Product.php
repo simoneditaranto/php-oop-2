@@ -17,7 +17,7 @@ class Product {
      */
     function __construct($_name, $_price, Category $_category) {
         $this->name = $_name;
-        $this->price = $_price;
+        $this->price = number_format($_price, 2);
         $this->category = $_category;
     }
 
@@ -34,7 +34,7 @@ class Product {
     }
 
     public function setPrice($newPrice) {
-        return $this->price = $newPrice;
+        return $this->price = number_format($newPrice, 2);
     }
 
     public function getPrice() {

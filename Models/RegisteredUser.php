@@ -7,7 +7,7 @@ class RegisteredUser extends User {
         parent::__construct($name, $lastName, $mail, $shop);
 
         foreach($this->shop->getshopProducts() as $singleProduct) {
-            $singleProduct->setPrice(5);
+            $singleProduct->setPrice($singleProduct->getPrice() - ($singleProduct->getPrice() / 100 * 20));
         }
         
     }
