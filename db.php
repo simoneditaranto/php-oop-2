@@ -14,10 +14,10 @@ $gatto = new Category("gatti", "fa-solid fa-cat");
 $crocchette = new Food("Crocchette", 12.50, $cane);
 $crocchette->setThumb("https://th.bing.com/th/id/OIP.AaJOJahN8dDYiJzoMOrUSgHaHa?rs=1&pid=ImgDetMain");
 
-$pallina = new Game("pallina", 8.50, $gatto);
+$pallina = new Game("pallina", 8.50, $gatto, "Plastica", "Morbido");
 $pallina->setThumb("https://th.bing.com/th/id/OIP.CSL6Y-c6yMqbb4Mgp20opAHaHa?rs=1&pid=ImgDetMain");
 
-$cuccia = new Utility("cuccia", 15.00, $cane);
+$cuccia = new Utility("cuccia", 15.00, $cane, "Legno", "Resistente");
 $cuccia->setThumb("https://www.cibocanigatti.it/accessori-cani-e-gatti/accesori-cane/cucce-per-cani-da-esterno_NG2.jpg");
 
 $products = [

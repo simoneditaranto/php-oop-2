@@ -47,11 +47,18 @@
 
             <div class="card" style="width: 18rem;">
                 <img src="<?= $product->getThumb() ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="product-title"><?= $product->getName() ?></h5>
-                    <p class="product-price"><?= $product->getPrice() ?>€</p>
+                <div class="card-body d-flex flex-column gap-3">
+                    <h5 class="product-title m-0"><?= $product->getName() ?></h5>
+                    <p class="product-price m-0"><?= $product->getPrice() ?>€</p>
                     <div class="product-icon">
                         <i class="<?= $product->getCategory()->getIcon() ?>"></i>
+                    </div>
+                    <div class="product-material d-flex flex-column">
+                            <?php
+                                if($product instanceof Game || $product instanceof Utility) {
+                                    echo '<span>Materiale: ' . $product->material . '</span> <span>Durezza: ' . $product->hardness . '</span>';
+                                }
+                            ?>
                     </div>
                     <div class="product-type">
                         <?= $product->getType() ?>

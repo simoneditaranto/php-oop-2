@@ -1,12 +1,16 @@
 <?php
 
 require './db.php';
+require './Models/CreditCard.php';
 
 $shopUser2 = new Shop([$pallina, $cuccia]);
 var_dump($shopUser2);
 $user2 = new RegisteredUser("Giacomo", "Verdi", "g.verdi@mail.com", $shopUser2);
 var_dump($user2);
 var_dump($user2->getShop());
+
+// $card = new CreditCard("1234", date("m-y", 5, 25));
+// var_dump($card);
 
 ?>
 

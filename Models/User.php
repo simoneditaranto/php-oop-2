@@ -32,4 +32,8 @@ class User {
         return $this->shop;
     }
 
+    public function setCreditCard(CreditCard $card) {
+        return $this->creditCard = $card;
+    }
+
 }
