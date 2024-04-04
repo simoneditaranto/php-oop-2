@@ -16,8 +16,26 @@ class Product {
      * @param  Category $_category
      */
     function __construct($_name, $_price, Category $_category) {
-        $this->name = $_name;
-        $this->price = number_format($_price, 2);
+
+        if(is_string($_name)) {
+
+            $this->name = $_name;
+
+        } else {
+            throw new Exception("Non hai inserito un nome valido");
+        }
+
+
+        // controllo che il prezzo sia un numero
+        if(is_numeric($_price)) {
+
+            $this->price = number_format($_price, 2);
+
+        } else {
+            // creo un eccezione
+            throw new Exception("Il prezzo inserito non è corretto");
+        }
+
         $this->category = $_category;
     }
 

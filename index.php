@@ -1,4 +1,7 @@
 <?php
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
 
     require './db.php';
 
@@ -46,31 +49,34 @@
             ?>
 
             <div class="card" style="width: 18rem;">
-                <img src="<?= $product->getThumb() ?>" class="card-img-top" alt="...">
-                <div class="card-body d-flex flex-column gap-3">
-                    <h5 class="product-title m-0"><?= $product->getName() ?></h5>
-                    <p class="product-price m-0"><?= $product->getPrice() ?>€</p>
+                <img src="<?= $product?->getThumb() ?>" class="card-img-top" alt="...">
+                <div class="card-body d-flex flex-column justify-content-between gap-3">
+                    <h5 class="product-title m-0"><?= $product?->getName() ?></h5>
+                    <p class="product-price m-0"><?= $product?->getPrice() ?>€</p>
                     <div class="product-icon">
-                        <i class="<?= $product->getCategory()->getIcon() ?>"></i>
+                        <i class="<?= $product?->getCategory()->getIcon() ?>"></i>
                     </div>
-                    <div class="product-material d-flex flex-column">
-                            <?php
-                                if($product instanceof Game || $product instanceof Utility) {
-                                    echo '<span>Materiale: ' . $product->material . '</span> <span>Durezza: ' . $product->hardness . '</span>';
-                                }
-                            ?>
-                    </div>
+                    <?php
+                        if($product instanceof Game || $product instanceof Utility) {
+                    ?>
+                        <div class="product-material d-flex flex-column">
+                            <?= '<span>Materiale: ' . $product->material . '</span> <span>Durezza: ' . $product->hardness . '</span>'; ?>
+                        </div>
+                    <?php
+                        }
+                    ?>
+                    
                     <div class="product-type">
-                        <?= $product->getType() ?>
+                        <?= $product?->getType() ?>
                     </div>
                     <a href="#" class="btn btn-primary">Acquista</a>
                 </div>
             </div>
           
     
-        <?php
-        }
-        ?>
+            <?php
+            }
+            ?>
         </div>
     </div>
 

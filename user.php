@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 require './db.php';
 require './Models/CreditCard.php';
 
@@ -53,9 +57,9 @@ var_dump($user2->getShop());
 
             <div class="card" style="width: 18rem;">
                 <img src="<?= $product->getThumb() ?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="product-title"><?= $product->getName() ?></h5>
-                    <p class="product-price">
+                <div class="card-body d-flex flex-column justify-content-between gap-3">
+                    <h5 class="product-title m-0"><?= $product->getName() ?></h5>
+                    <p class="product-price m-0">
                         <span class="old-price text-decoration-line-through fw-light fst-italic"><?= $product->getPrice() ?></span>
                         <span class="new-price">
                             <?= $product->setPrice($product->getPrice() - ($product->getPrice() / 100 * 20)) ?>€
@@ -66,6 +70,13 @@ var_dump($user2->getShop());
                     </div>
                     <div class="product-type">
                         <?= $product->getType() ?>
+                    </div>
+                    <div class="product-material d-flex flex-column">
+                            <?php
+                                if($product instanceof Game || $product instanceof Utility) {
+                                    echo '<span>Materiale: ' . $product->material . '</span> <span>Durezza: ' . $product->hardness . '</span>';
+                                }
+                            ?>
                     </div>
                     <a href="#" class="btn btn-primary">Acquista</a>
                 </div>
